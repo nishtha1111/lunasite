@@ -1,0 +1,79 @@
+{
+  "source": "NASA Artemis III Candidate Landing Regions (NASA Release 22-088, August 2022; Lunar Resources Registry & LPI/USRA cartographic databases)",
+  "disclaimer": "Observer coordinates represent documented candidate regional center/ridge crest points within the 15x15 km Artemis III exploration boxes. For mission planning and educational exploration; not flight certified.",
+  "ephemeris_engine": "NAIF SPICE (de440s.bsp, MOON_ME frame, moon_pa_de421)",
+  "dem_source": "NASA LRO LOLA Gridded Data Record LDEM_75S_240M via PDS Geosciences Node",
+  "start_utc": "2026-01-01T00:00:00",
+  "end_utc": "2030-12-31T23:30:00",
+  "step_seconds": 1800,
+  "num_steps": 87648,
+  "sites": [
+    {
+      "id": "shackleton_peak",
+      "name": "Peak Near Shackleton",
+      "region": "Peak Near Shackleton",
+      "lat_deg": -88.81,
+      "lon_deg": 124.68,
+      "elev_m": 1250,
+      "status": "approximate",
+      "dataFile": "data/shackleton_peak.bin",
+      "metaFile": "data/shackleton_peak.json"
+    },
+    {
+      "id": "connecting_ridge",
+      "name": "Connecting Ridge",
+      "region": "Connecting Ridge",
+      "lat_deg": -89.45,
+      "lon_deg": -136.0,
+      "elev_m": 1680,
+      "status": "approximate",
+      "dataFile": "data/connecting_ridge.bin",
+      "metaFile": "data/connecting_ridge.json"
+    },
+    {
+      "id": "malapert_massif",
+      "name": "Malapert Massif",
+      "region": "Malapert Massif",
+      "lat_deg": -86.0,
+      "lon_deg": 2.7,
+      "elev_m": 5050,
+      "status": "approximate",
+      "dataFile": "data/malapert_massif.bin",
+      "metaFile": "data/malapert_massif.json"
+    },
+    {
+      "id": "faustini_rim_a",
+      "name": "Faustini Rim A",
+      "region": "Faustini Rim A",
+      "lat_deg": -87.89,
+      "lon_deg": 90.0,
+      "elev_m": 2100,
+      "status": "approximate",
+      "dataFile": "data/faustini_rim_a.bin",
+      "metaFile": "data/faustini_rim_a.json"
+    },
+    {
+      "id": "de_gerlache_rim_1",
+      "name": "de Gerlache Rim 1",
+      "region": "de Gerlache Rim 1",
+      "lat_deg": -88.5,
+      "lon_deg": -68.0,
+      "elev_m": 1820,
+      "status": "approximate",
+      "dataFile": "data/de_gerlache_rim_1.bin",
+      "metaFile": "data/de_gerlache_rim_1.json"
+    },
+    {
+      "id": "nobile_rim_1",
+      "name": "Nobile Rim 1",
+      "region": "Nobile Rim 1",
+      "lat_deg": -85.3,
+      "lon_deg": 31.5,
+      "elev_m": 3100,
+      "status": "approximate",
+      "dataFile": "data/nobile_rim_1.bin",
+      "metaFile": "data/nobile_rim_1.json"
+    }
+  ],
+  "ai_use": "Generated with AI assistance under human scientific oversight."
+}

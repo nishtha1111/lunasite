@@ -1,0 +1,66 @@
+{
+  "source": "NASA Artemis III Candidate Landing Regions (NASA Release 22-088, August 2022; Lunar Resources Registry & LPI/USRA cartographic databases)",
+  "disclaimer": "Observer coordinates represent documented candidate regional center/ridge crest points within the 15x15 km Artemis III exploration boxes. For mission planning and educational exploration; not flight certified.",
+  "sites": [
+    {
+      "id": "shackleton_peak",
+      "name": "Peak Near Shackleton",
+      "region": "Peak Near Shackleton",
+      "lat_deg": -88.81,
+      "lon_deg": 124.68,
+      "elev_m": 1250,
+      "status": "approximate",
+      "description": "High-standing ridge crest adjacent to Shackleton Crater featuring near-continuous solar illumination and direct line-of-sight to deep volatile cold traps."
+    },
+    {
+      "id": "connecting_ridge",
+      "name": "Connecting Ridge",
+      "region": "Connecting Ridge",
+      "lat_deg": -89.45,
+      "lon_deg": -136.00,
+      "elev_m": 1680,
+      "status": "approximate",
+      "description": "Prominent high-elevation saddle feature connecting the rims of Shackleton and de Gerlache craters, offering exceptional strategic vantage."
+    },
+    {
+      "id": "malapert_massif",
+      "name": "Malapert Massif",
+      "region": "Malapert Massif",
+      "lat_deg": -86.00,
+      "lon_deg": 2.70,
+      "elev_m": 5050,
+      "status": "approximate",
+      "description": "Massive elevated mountain block rising over 5,000 meters above surrounding terrain, providing unparalleled direct-with-Earth communication visibility."
+    },
+    {
+      "id": "faustini_rim_a",
+      "name": "Faustini Rim A",
+      "region": "Faustini Rim A",
+      "lat_deg": -87.89,
+      "lon_deg": 90.00,
+      "elev_m": 2100,
+      "status": "approximate",
+      "description": "Elevated rim segment of Faustini Crater flanked by permanently shadowed regions containing potential surface and subsurface water ice."
+    },
+    {
+      "id": "de_gerlache_rim_1",
+      "name": "de Gerlache Rim 1",
+      "region": "de Gerlache Rim 1",
+      "lat_deg": -88.50,
+      "lon_deg": -68.00,
+      "elev_m": 1820,
+      "status": "approximate",
+      "description": "Eastern high rim of de Gerlache Crater with sustained solar exposure and moderate terrain slopes."
+    },
+    {
+      "id": "nobile_rim_1",
+      "name": "Nobile Rim 1",
+      "region": "Nobile Rim 1",
+      "lat_deg": -85.30,
+      "lon_deg": 31.50,
+      "elev_m": 3100,
+      "status": "approximate",
+      "description": "Western elevated rim of Nobile Crater situated along ancient South Pole-Aitken basin highland terrain."
+    }
+  ]
+}

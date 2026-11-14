@@ -1,0 +1,19 @@
+1
+00:00:00,000 --> 00:00:05,000
+At the Moon’s south pole, the Sun skims the horizon. A flat model is wrong—terrain shadows dominate everything.
+
+2
+00:00:05,000 --> 00:00:11,500
+Meet LunaSite. In seconds, compare Artemis landing sites with real LOLA topography and NAIF SPICE ephemerides.
+
+3
+00:00:11,500 --> 00:00:19,000
+Our 360° panorama visualizes grazing sunlight, 14-day Earth libration cycles, and the power gain of a 10-meter mast.
+
+4
+00:00:19,000 --> 00:00:25,500
+Rank optimal mission windows with our explainable Viability Score—balancing power and comms with zero guesswork.
+
+5
+00:00:25,500 --> 00:00:30,000
+Zero login. Pure client-side. Explore the lunar south pole with LunaSite!

@@ -1,0 +1,14 @@
+[project]
+name = "lunasite-pipeline"
+version = "0.1.0"
+description = "LunaSite offline ephemeris and LOLA terrain horizon pipeline"
+readme = "README.md"
+requires-python = ">=3.11"
+dependencies = [
+    "spiceypy>=6.0.0",
+    "numpy>=1.26.0",
+    "scipy>=1.12.0",
+    "requests>=2.31.0",
+    "astropy>=6.0.0",
+    "jplephem>=2.20"
+]
