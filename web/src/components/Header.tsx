@@ -1,6 +1,6 @@
 /**
  * Portions of this file were generated with AI assistance.
- * LunaSite Header Component.
+ * LunaSite Clean, Modern Header Component.
  */
 
 import React from 'react';
@@ -11,10 +11,7 @@ import {
   Compass, 
   GraduationCap, 
   Share2, 
-  Download, 
-  Moon, 
-  Sun, 
-  Radio
+  Download
 } from 'lucide-react';
 
 interface HeaderProps {
@@ -37,47 +34,54 @@ export const Header: React.FC<HeaderProps> = ({
   shareCopied
 }) => {
   return (
-    <header className="border-b border-lunar-800 bg-lunar-900/80 backdrop-blur-md sticky top-0 z-50">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between gap-4">
+    <header className="border-b border-slate-800/80 bg-slate-950/90 backdrop-blur-md sticky top-0 z-50">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-14 flex items-center justify-between gap-4">
         
-        {/* Brand & Neutral Mission Pill */}
+        {/* Sleek Aerospace Logo & Title */}
         <div className="flex items-center gap-3">
-          <div className="flex items-center gap-2">
-            <div className="w-8 h-8 rounded-lg bg-gradient-to-br from-amber-500/20 via-cyan-500/20 to-lunar-800 border border-lunar-700 flex items-center justify-center">
-              <Moon className="w-4 h-4 text-slate-200" />
+          <div className="flex items-center gap-2.5 cursor-pointer" onClick={() => onViewChange('compare')}>
+            {/* Custom Modern Lunar Logo Mark */}
+            <div className="relative w-7 h-7 flex items-center justify-center">
+              <svg viewBox="0 0 32 32" className="w-7 h-7" fill="none">
+                <circle cx="16" cy="16" r="14" stroke="#334155" strokeWidth="1.5" />
+                <path
+                  d="M16 2 A 14 14 0 0 1 16 30 A 10 10 0 0 0 16 2 Z"
+                  fill="#f1f5f9"
+                />
+                <circle cx="21" cy="11" r="2.5" fill="#f59e0b" />
+                <circle cx="9" cy="21" r="1.5" fill="#06b6d4" />
+              </svg>
             </div>
-            <div>
-              <div className="flex items-center gap-2">
-                <span className="font-bold text-lg tracking-tight bg-gradient-to-r from-slate-100 via-slate-200 to-slate-400 bg-clip-text text-transparent">
-                  LunaSite
-                </span>
-                <span className="text-[10px] font-mono uppercase px-2 py-0.5 rounded-full bg-lunar-800 border border-lunar-700 text-slate-300 font-semibold tracking-wider">
-                  Lunar South Pole Mission Planner
-                </span>
-              </div>
+            <div className="flex items-baseline gap-2">
+              <span className="font-extrabold text-base tracking-tight text-white">
+                LunaSite
+              </span>
+              <span className="hidden sm:inline-block text-[11px] text-slate-400 font-medium">
+                Lunar South Pole Planner
+              </span>
             </div>
           </div>
         </div>
 
-        {/* View Tabs */}
-        <nav className="flex items-center gap-1 bg-lunar-950/70 p-1 rounded-lg border border-lunar-800">
+        {/* View Segmented Tabs */}
+        <nav className="flex items-center bg-slate-900/90 p-1 rounded-lg border border-slate-800 shadow-inner">
           <button
             onClick={() => onViewChange('compare')}
-            className={`flex items-center gap-1.5 px-3 py-1.5 rounded-md text-xs font-medium transition-all ${
+            className={`flex items-center gap-1.5 px-3 py-1.2 rounded-md text-xs font-medium transition-all ${
               activeView === 'compare'
-                ? 'bg-lunar-800 text-slate-100 shadow-sm border border-lunar-700'
-                : 'text-slate-400 hover:text-slate-200 hover:bg-lunar-850'
+                ? 'bg-slate-800 text-white shadow-sm font-semibold'
+                : 'text-slate-400 hover:text-slate-200'
             }`}
           >
             <BarChart3 className="w-3.5 h-3.5 text-amber-400" />
-            <span>Compare Sites</span>
+            <span>Compare</span>
           </button>
           <button
             onClick={() => onViewChange('horizon')}
-            className={`flex items-center gap-1.5 px-3 py-1.5 rounded-md text-xs font-medium transition-all ${
+            className={`flex items-center gap-1.5 px-3 py-1.2 rounded-md text-xs font-medium transition-all ${
               activeView === 'horizon'
-                ? 'bg-lunar-800 text-slate-100 shadow-sm border border-lunar-700'
-                : 'text-slate-400 hover:text-slate-200 hover:bg-lunar-850'
+                ? 'bg-slate-800 text-white shadow-sm font-semibold'
+                : 'text-slate-400 hover:text-slate-200'
             }`}
           >
             <Compass className="w-3.5 h-3.5 text-cyan-400" />
@@ -85,10 +89,10 @@ export const Header: React.FC<HeaderProps> = ({
           </button>
           <button
             onClick={() => onViewChange('learn')}
-            className={`flex items-center gap-1.5 px-3 py-1.5 rounded-md text-xs font-medium transition-all ${
+            className={`flex items-center gap-1.5 px-3 py-1.2 rounded-md text-xs font-medium transition-all ${
               activeView === 'learn'
-                ? 'bg-lunar-800 text-slate-100 shadow-sm border border-lunar-700'
-                : 'text-slate-400 hover:text-slate-200 hover:bg-lunar-850'
+                ? 'bg-slate-800 text-white shadow-sm font-semibold'
+                : 'text-slate-400 hover:text-slate-200'
             }`}
           >
             <GraduationCap className="w-3.5 h-3.5 text-emerald-400" />
@@ -96,18 +100,18 @@ export const Header: React.FC<HeaderProps> = ({
           </button>
         </nav>
 
-        {/* Presets & Actions */}
+        {/* Presets & Action Buttons */}
         <div className="flex items-center gap-2">
           {/* Preset Selector */}
-          <div className="hidden sm:flex items-center gap-1.5 bg-lunar-950 border border-lunar-800 px-2 py-1 rounded-md text-xs">
-            <span className="text-slate-500 font-mono text-[11px]">Preset:</span>
+          <div className="hidden md:flex items-center gap-1.5 bg-slate-900 border border-slate-800 px-2.5 py-1 rounded-md text-xs">
+            <span className="text-slate-500 font-mono text-[10px] uppercase tracking-wider">Profile:</span>
             <select
               value={preset}
               onChange={(e) => onPresetChange(e.target.value as MissionPreset)}
-              className="bg-transparent text-slate-200 font-medium focus:outline-none cursor-pointer"
+              className="bg-transparent text-slate-200 font-medium focus:outline-none cursor-pointer text-xs"
             >
               {(Object.keys(MISSION_PRESETS) as MissionPreset[]).map((key) => (
-                <option key={key} value={key} className="bg-lunar-900 text-slate-200">
+                <option key={key} value={key} className="bg-slate-900 text-slate-200">
                   {MISSION_PRESETS[key].label}
                 </option>
               ))}
@@ -118,32 +122,21 @@ export const Header: React.FC<HeaderProps> = ({
           <button
             onClick={onShare}
             title="Copy shareable mission link"
-            className="flex items-center gap-1.5 px-2.5 py-1.5 rounded-md text-xs font-medium bg-lunar-850 hover:bg-lunar-800 border border-lunar-700/60 text-slate-300 transition-colors"
+            className="flex items-center gap-1.5 px-2.5 py-1.2 rounded-md text-xs font-medium bg-slate-900 hover:bg-slate-800 border border-slate-800 text-slate-300 transition-colors"
           >
             <Share2 className="w-3.5 h-3.5" />
-            <span className="hidden md:inline">{shareCopied ? 'Link Copied!' : 'Share'}</span>
+            <span className="hidden sm:inline">{shareCopied ? 'Copied!' : 'Share'}</span>
           </button>
 
           {/* Export CSV Button */}
           <button
             onClick={onExportCsv}
-            title="Download CSV metrics table"
-            className="flex items-center gap-1.5 px-2.5 py-1.5 rounded-md text-xs font-medium bg-lunar-850 hover:bg-lunar-800 border border-lunar-700/60 text-slate-300 transition-colors"
+            title="Download CSV metrics"
+            className="flex items-center gap-1.5 px-2.5 py-1.2 rounded-md text-xs font-medium bg-slate-900 hover:bg-slate-800 border border-slate-800 text-slate-300 transition-colors"
           >
             <Download className="w-3.5 h-3.5" />
-            <span className="hidden md:inline">Export CSV</span>
+            <span className="hidden sm:inline">CSV</span>
           </button>
-
-          {/* Legend indicators */}
-          <div className="hidden lg:flex items-center gap-3 ml-2 pl-3 border-l border-lunar-800 text-[11px] font-mono">
-            <span className="flex items-center gap-1 text-amber-400">
-              <Sun className="w-3 h-3" /> Sun
-            </span>
-            <span className="flex items-center gap-1 text-cyan-400">
-              <Radio className="w-3 h-3" /> Earth (DWE)
-            </span>
-          </div>
-
         </div>
 
       </div>
