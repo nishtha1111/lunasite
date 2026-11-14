@@ -52,4 +52,4 @@ To ensure code and data integrity:
 
 ## 5. Contact & Questions
 For inquiries regarding the computational methods, code provenance, or scientific validation of LunaSite, please refer to the project repository:
-`https://github.com/nasa-spaceapps-2026/lunasite`
+`https://github.com/nishtha1111/lunasite`

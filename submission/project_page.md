@@ -48,6 +48,6 @@ LunaSite solves this problem by combining high-precision offline planetary compu
 
 ## 5. Project Links & Artifacts
 - **Live Interactive Demo**: [https://lunasite.spaceapps2026.app](https://lunasite.spaceapps2026.app) *(Static GitHub Pages / Vercel deployment)*
-- **Open-Source GitHub Repository**: `https://github.com/nasa-spaceapps-2026/lunasite`
+- **Open-Source GitHub Repository**: `https://github.com/nishtha1111/lunasite`
 - **Scientific Validation Report**: Included in repository as [`docs/VALIDATION.md`](file:///c:/Users/Nishtha%20patel/OneDrive/lunapro/docs/VALIDATION.md)
 - **Mathematical Methodology**: Included in repository as [`docs/METHODOLOGY.md`](file:///c:/Users/Nishtha%20patel/OneDrive/lunapro/docs/METHODOLOGY.md)

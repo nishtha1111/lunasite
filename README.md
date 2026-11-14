@@ -103,7 +103,7 @@ Coordinates reflect documented high-ground center points within NASA's Artemis I
 ### Running the Web Application
 ```bash
 # Clone the repository
-git clone https://github.com/nasa-spaceapps-2026/lunasite.git
+git clone https://github.com/nishtha1111/lunasite.git
 cd lunasite
 
 # Install frontend dependencies
