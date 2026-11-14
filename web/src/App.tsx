@@ -86,36 +86,54 @@ export const App: React.FC = () => {
     }
   };
 
-  // Parse URL hash on mount
-  useEffect(() => {
-    try {
-      const hash = window.location.hash.substring(1);
-      if (hash) {
-        const params = new URLSearchParams(hash);
-        const sitesParam = params.get('sites');
-        const startParam = params.get('start');
-        const endParam = params.get('end');
-        const presetParam = params.get('preset') as MissionPreset | null;
-        const viewParam = params.get('view') as ActiveView | null;
+  const [targetEpoch, setTargetEpoch] = useState<number | undefined>(undefined);
 
-        if (sitesParam) {
-          const list = sitesParam.split(',').filter(Boolean);
-          if (list.length >= 2) setSelectedSiteIds(list);
+  // Parse URL hash on mount & on hashchange
+  useEffect(() => {
+    const parseHash = () => {
+      try {
+        const hash = window.location.hash.substring(1);
+        if (hash) {
+          const params = new URLSearchParams(hash);
+          const sitesParam = params.get('sites');
+          const siteParam = params.get('site');
+          const startParam = params.get('start');
+          const endParam = params.get('end');
+          const presetParam = params.get('preset') as MissionPreset | null;
+          const viewParam = params.get('view') as ActiveView | null;
+          const epochParam = params.get('epoch');
+
+          if (epochParam) {
+            setTargetEpoch(parseInt(epochParam, 10));
+          }
+          if (siteParam) {
+            setFocusedSiteId(siteParam);
+          }
+          if (sitesParam) {
+            const list = sitesParam.split(',').filter(Boolean);
+            if (list.length >= 2) setSelectedSiteIds(list);
+          } else if (siteParam) {
+            setSelectedSiteIds((prev) => prev.includes(siteParam) ? prev : [...prev, siteParam]);
+          }
+          if (startParam && endParam) {
+            setDateRange({ startDate: startParam, endDate: endParam });
+          }
+          if (presetParam && MISSION_PRESETS[presetParam]) {
+            setActivePreset(presetParam);
+            setWeights(MISSION_PRESETS[presetParam].weights);
+          }
+          if (viewParam && ['compare', 'horizon', 'learn'].includes(viewParam)) {
+            setActiveView(viewParam);
+          }
         }
-        if (startParam && endParam) {
-          setDateRange({ startDate: startParam, endDate: endParam });
-        }
-        if (presetParam && MISSION_PRESETS[presetParam]) {
-          setActivePreset(presetParam);
-          setWeights(MISSION_PRESETS[presetParam].weights);
-        }
-        if (viewParam && ['compare', 'horizon', 'learn'].includes(viewParam)) {
-          setActiveView(viewParam);
-        }
+      } catch (e) {
+        console.warn('Could not parse URL hash state:', e);
       }
-    } catch (e) {
-      console.warn('Could not parse URL hash state:', e);
-    }
+    };
+
+    parseHash();
+    window.addEventListener('hashchange', parseHash);
+    return () => window.removeEventListener('hashchange', parseHash);
   }, []);
 
   // Update URL hash on state change
@@ -342,6 +360,7 @@ export const App: React.FC = () => {
                   endIndex={endIndex}
                   observerHeight={observerHeight}
                   onObserverHeightChange={setObserverHeight}
+                  initialEpoch={targetEpoch}
                 />
               )}
 

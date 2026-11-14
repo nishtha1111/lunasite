@@ -103,7 +103,7 @@ export const ControlPanel: React.FC<ControlPanelProps> = ({
                 <div className="flex items-center gap-2 mt-1 font-mono text-[10px] text-slate-400">
                   <span>{Math.abs(site.lat_deg).toFixed(2)}°S, {site.lon_deg >= 0 ? `${site.lon_deg.toFixed(2)}°E` : `${Math.abs(site.lon_deg).toFixed(2)}°W`}</span>
                   <span className="text-lunar-600">•</span>
-                  <span className="text-amber-400/80 font-sans italic">{site.status}</span>
+                  <span className="text-slate-400">+{site.elev_m}m</span>
                 </div>
               </button>
             );

@@ -37,8 +37,8 @@ export const InsightCard: React.FC<InsightCardProps> = ({
       <div className="space-y-2">
         <div className="flex items-center justify-between">
           <span className="text-[10px] font-mono uppercase tracking-wider text-slate-500">Focused Target Site</span>
-          <span className="text-[10px] font-mono bg-amber-500/10 text-amber-400 border border-amber-500/30 px-1.5 py-0.5 rounded">
-            {activeSiteMeta.status}
+          <span className="text-[10px] font-mono bg-cyan-500/10 text-cyan-400 border border-cyan-500/30 px-1.5 py-0.5 rounded">
+            Artemis III Candidate
           </span>
         </div>
         <h3 className="font-bold text-base text-slate-100">{activeSiteMeta.name}</h3>

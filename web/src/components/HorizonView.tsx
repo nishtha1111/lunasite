@@ -30,6 +30,7 @@ interface HorizonViewProps {
   endIndex: number;
   observerHeight: ObserverHeight;
   onObserverHeightChange: (h: ObserverHeight) => void;
+  initialEpoch?: number;
 }
 
 export const HorizonView: React.FC<HorizonViewProps> = ({
@@ -39,13 +40,14 @@ export const HorizonView: React.FC<HorizonViewProps> = ({
   startIndex,
   endIndex,
   observerHeight,
-  onObserverHeightChange
+  onObserverHeightChange,
+  initialEpoch
 }) => {
   const currentSite = useMemo(() => {
     return sitesData.find((s) => s.meta.id === selectedSiteId) || sitesData[0] || null;
   }, [sitesData, selectedSiteId]);
 
-  const [currentEpoch, setCurrentEpoch] = useState<number>(startIndex);
+  const [currentEpoch, setCurrentEpoch] = useState<number>(initialEpoch ?? startIndex);
   const [isPlaying, setIsPlaying] = useState<boolean>(false);
   const [playSpeed, setPlaySpeed] = useState<number>(10); // epochs per tick
   const [showMastComparison, setShowMastComparison] = useState<boolean>(true);
@@ -54,10 +56,12 @@ export const HorizonView: React.FC<HorizonViewProps> = ({
 
   // Keep current epoch within current date range bounds
   useEffect(() => {
-    if (currentEpoch < startIndex || currentEpoch > endIndex) {
+    if (initialEpoch !== undefined) {
+      setCurrentEpoch(initialEpoch);
+    } else if (currentEpoch < startIndex || currentEpoch > endIndex) {
       setCurrentEpoch(startIndex);
     }
-  }, [startIndex, endIndex]);
+  }, [startIndex, endIndex, initialEpoch]);
 
   // Playback loop
   useEffect(() => {
