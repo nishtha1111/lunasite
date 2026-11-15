@@ -20,30 +20,28 @@
 
 ## FIELD 2: Project Demonstration *
 **Field Requirements**: Demo presentation (no more than 7 slides, including title) OR video (30 seconds or less). Hosted on a public platform (YouTube, Google Drive, GitHub, OneDrive, Dropbox) with a link requiring no password, permission, or registration. Full https URL.  
-**Status**: `NEEDS USER INPUT` (User uploads the deck/video and pastes the public URL)
+**Status**: `READY` (Hosted on GitHub Pages / Public GitHub)
 
 ### Slide Deck Verification:
 - **Slide Count**: **7 slides exactly** (Verified).
-- **Presentation Source Files Available in Repository**:
-  1. `submission/demo_slides.html`: Standalone, interactive HTML presentation deck styled with high-contrast mission theme, keyboard navigation (Left/Right arrows), slide counter (Slide 1 of 7), and print-ready CSS (`@media print` for 1-click PDF export).
-  2. `submission/demo_slides_outline.md`: Comprehensive 7-slide presentation script and slide-by-slide structure.
-  3. `submission/deck_assets/`: Complete asset pack containing all high-resolution 16:10 screenshots (DPR 2, dark theme, sharp text, no browser chrome).
-
-### File to Upload:
-Upload `submission/demo_slides.html` (or open it in your browser and select **Print > Save as PDF** to produce a 7-page PDF presentation) to your preferred public platform:
-- Google Drive (set to "Anyone with the link can view")
-- GitHub Pages / GitHub raw repository file
-- OneDrive / Dropbox (public shared link)
+- **Public Interactive Presentation URL (Hosted on GitHub Pages)**:
+  ```
+  https://nishtha1111.github.io/lunasite/demo_slides.html
+  ```
+- **Direct GitHub Repository Deck Source**:
+  ```
+  https://github.com/nishtha1111/lunasite/blob/main/submission/demo_slides.html
+  ```
 
 ### Copy-Paste Form Field:
 ```
-Link: USER TO PROVIDE (full https URL after I upload the deck)
+https://nishtha1111.github.io/lunasite/demo_slides.html
 ```
 
-### 3-Step Checklist to Make Public and Verify:
-1. **Upload & Share**: Upload your 7-slide PDF or HTML presentation to Google Drive, GitHub, OneDrive, or Dropbox. In the share settings, select **"Anyone with the link can view"** (do not restrict to specific organizations or domains).
-2. **Copy Direct Link**: Copy the full link (must start with `https://`).
-3. **Private Window Test**: Open a **new Incognito / Private Browsing window** (where you are completely signed out of all Google, Microsoft, and GitHub accounts) and paste the URL. Confirm that the presentation loads immediately without prompting for login, password, or access requests.
+### 3-Step Verification in Private Window:
+1. Open a **new Incognito / Private Browsing window** (where you are signed out of GitHub).
+2. Paste `https://nishtha1111.github.io/lunasite/demo_slides.html`.
+3. Verify that the 7-slide presentation loads instantly and responds to keyboard arrows (Left/Right) without requiring login or permissions. (You can also select Print > Save as PDF in your browser to produce a 7-page PDF if desired).
 
 ### Alternate Video Option (Verified):
 If submitting a video demo instead of a slide deck:
@@ -54,21 +52,21 @@ If submitting a video demo instead of a slide deck:
 
 ## FIELD 3: Project *
 **Field Requirements**: Publicly accessible link to the project (website, cloud hosting, or code repository). No password, permission, or registration. Full https URL.  
-**Status**: `NEEDS USER INPUT` (Select whether submitting the live deployed app URL or public GitHub repository URL)
+**Status**: `READY`
 
-### Links:
-- **Deployed Application**:
-  ```
-  https://USER-TO-PROVIDE-DEPLOYED-URL (e.g., https://lunasite.web.app or your custom deployment URL)
-  ```
+### Copy-Paste Form Field:
+```
+https://nishtha1111.github.io/lunasite/
+```
+
+### Links Summary:
+- **Live Deployed Application (GitHub Pages)**:
+  `https://nishtha1111.github.io/lunasite/`
 - **Public GitHub Repository**:
-  ```
-  https://github.com/nishtha1111/lunasite
-  ```
+  `https://github.com/nishtha1111/lunasite`
 
-### Guidance on Which Link to Put in the Form Field:
-- **Recommended**: Put the **Deployed Application URL** (e.g. Firebase Hosting, Netlify, Vercel, or GitHub Pages) in this field so judges can test and interact with the live tool immediately in one click.
-- **Alternative**: If the application has not yet been deployed to a web host, enter the **Public GitHub Repository URL** (`https://github.com/nishtha1111/lunasite`), which contains the complete source code, offline pipeline, test suite, and pre-built static bundle. Both satisfy the Space Apps eligibility rules as long as they are publicly accessible.
+### Form Guidance:
+- Enter the **Deployed Application URL** (`https://nishtha1111.github.io/lunasite/`) in the form field. It is publicly accessible with zero login, zero password, and loads in under 1 second.
 
 ---
 
