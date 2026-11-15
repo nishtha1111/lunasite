@@ -3,323 +3,487 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>LunaSite – Project Demonstration (7 Slides) | NASA Space Apps Challenge 2026</title>
-  <script src="https://cdn.tailwindcss.com"></script>
+  <title>LunaSite – NASA Space Apps Challenge 2026 Demo Deck (7 Slides)</title>
+  <meta name="si-assisted" content="true">
+  <!-- Portions of this presentation were prepared with SI assistance (see SI_USE.md) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
   <style>
+    :root {
+      --bg-dark: #06090e;
+      --card-bg: rgba(15, 23, 42, 0.75);
+      --card-border: rgba(51, 65, 85, 0.6);
+      --sun-gold: #f59e0b;
+      --earth-cyan: #06b6d4;
+      --text-main: #f8fafc;
+      --text-muted: #94a3b8;
+      --accent-emerald: #10b981;
+    }
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+    body {
+      background-color: var(--bg-dark);
+      color: var(--text-main);
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+      overflow-x: hidden;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+    }
+    .deck-container {
+      width: 100vw;
+      max-width: 1280px;
+      height: 720px;
+      position: relative;
+      background: radial-gradient(circle at 50% 0%, rgba(30, 41, 59, 0.5) 0%, rgba(6, 9, 14, 0.95) 100%);
+      border: 1px solid var(--card-border);
+      border-radius: 12px;
+      box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.7);
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+    }
+    .slide {
+      display: none;
+      width: 100%;
+      height: 100%;
+      padding: 40px 50px 70px 50px;
+      flex-direction: column;
+      justify-content: space-between;
+      animation: fadeIn 0.3s ease-in-out;
+    }
+    .slide.active {
+      display: flex;
+    }
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(6px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    .slide-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 4px 10px;
+      border-radius: 9999px;
+      font-size: 11px;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      background: rgba(245, 158, 11, 0.15);
+      color: var(--sun-gold);
+      border: 1px solid rgba(245, 158, 11, 0.3);
+      margin-bottom: 8px;
+    }
+    h2 {
+      font-size: 28px;
+      font-weight: 700;
+      color: #fff;
+      margin-bottom: 6px;
+      letter-spacing: -0.02em;
+    }
+    .subtitle {
+      font-size: 14px;
+      color: var(--text-muted);
+      margin-bottom: 20px;
+    }
+    .content-grid {
+      display: grid;
+      grid-template-columns: 1.1fr 1fr;
+      gap: 28px;
+      align-items: center;
+      flex: 1;
+      min-height: 0;
+    }
+    .content-col {
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+    }
+    .card {
+      background: var(--card-bg);
+      border: 1px solid var(--card-border);
+      border-radius: 8px;
+      padding: 14px 18px;
+    }
+    .card h3 {
+      font-size: 15px;
+      font-weight: 600;
+      color: var(--sun-gold);
+      margin-bottom: 4px;
+    }
+    .card p {
+      font-size: 13px;
+      line-height: 1.45;
+      color: var(--text-muted);
+    }
+    .highlight-stat {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 22px;
+      font-weight: 700;
+      color: #fff;
+    }
+    .img-box {
+      width: 100%;
+      height: 100%;
+      max-height: 420px;
+      border-radius: 8px;
+      overflow: hidden;
+      border: 1px solid var(--card-border);
+      background: #000;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .img-box img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+    /* Controls Footer */
+    .controls {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      height: 50px;
+      background: rgba(15, 23, 42, 0.85);
+      border-top: 1px solid var(--card-border);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 30px;
+      font-size: 12px;
+      color: var(--text-muted);
+      backdrop-filter: blur(8px);
+    }
+    .btn-group {
+      display: flex;
+      gap: 8px;
+    }
+    button {
+      background: #1e293b;
+      color: #fff;
+      border: 1px solid #334155;
+      padding: 6px 14px;
+      border-radius: 6px;
+      cursor: pointer;
+      font-size: 12px;
+      font-weight: 500;
+      transition: all 0.15s;
+    }
+    button:hover {
+      background: #334155;
+      border-color: #475569;
+    }
+    .slide-counter {
+      font-family: 'JetBrains Mono', monospace;
+      font-weight: 600;
+      color: var(--sun-gold);
+    }
+    /* Print */
     @media print {
-      body { background: #030712 !important; color: #f8fafc !important; }
-      .slide { page-break-after: always; height: 100vh !important; display: flex !important; }
-      .nav-controls { display: none !important; }
+      body { background: #fff; color: #000; }
+      .deck-container { width: 100%; height: auto; border: none; box-shadow: none; }
+      .slide { display: flex !important; page-break-after: always; height: 100vh; padding: 20px; }
+      .controls { display: none; }
     }
   </style>
 </head>
-<body class="bg-[#030712] text-slate-100 font-sans min-h-screen flex flex-col justify-between select-none">
+<body>
 
-  <!-- Presentation Header -->
-  <header class="border-b border-slate-800 bg-[#090d16]/90 backdrop-blur px-6 py-3 flex items-center justify-between">
-    <div class="flex items-center gap-3">
-      <span class="font-black text-lg tracking-tight bg-gradient-to-r from-amber-400 via-slate-100 to-cyan-400 bg-clip-text text-transparent">
-        LunaSite
-      </span>
-      <span class="text-xs font-mono text-slate-400 border border-slate-700 px-2 py-0.5 rounded-full">
-        NASA Space Apps Challenge 2026 | Demonstration Deck
-      </span>
-    </div>
-    <div class="text-xs font-mono text-amber-400 font-bold" id="slideIndicator">
-      Slide 1 of 7
-    </div>
-  </header>
+  <div class="deck-container">
 
-  <!-- Slide Container -->
-  <main class="flex-1 flex items-center justify-center p-6 sm:p-12 overflow-hidden relative">
-
-    <!-- SLIDE 1: Title & Overview -->
-    <div class="slide w-full max-w-5xl flex flex-col justify-center space-y-6" id="slide-1">
-      <div class="space-y-3">
-        <div class="inline-block px-3 py-1 rounded-full bg-amber-500/10 border border-amber-500/30 text-amber-400 text-xs font-mono font-semibold">
-          Challenge: Visualizing Sun & Earth Positions at the Lunar South Pole
-        </div>
-        <h1 class="text-4xl sm:text-6xl font-black tracking-tight text-white leading-tight">
-          LunaSite
-        </h1>
-        <p class="text-xl sm:text-2xl text-slate-300 font-light max-w-3xl">
-          Rapid, terrain-masked mission planning for candidate lunar south pole landing sites using NASA LOLA topography and NAIF SPICE astrodynamics.
-        </p>
+    <!-- Slide 1: Title & Hook -->
+    <div class="slide active" id="slide-1">
+      <div>
+        <div class="slide-badge">NASA Space Apps Challenge 2026</div>
+        <h2 style="font-size: 34px; margin-top: 4px;">LunaSite: Rapid Terrain-Masked Mission Planning</h2>
+        <p class="subtitle">Empowering Mission Planners, Educators & Public with Real LOLA Topography & NAIF SPICE Astrodynamics</p>
       </div>
-      <div class="grid grid-cols-1 sm:grid-cols-3 gap-4 pt-4 border-t border-slate-800">
-        <div class="p-4 rounded-xl bg-slate-900/60 border border-slate-800">
-          <div class="text-xs font-mono text-slate-400 uppercase">Architecture</div>
-          <div class="text-base font-bold text-slate-100 mt-1">Zero-Login Static Web App</div>
-          <p class="text-xs text-slate-400 mt-1">Pure client-side execution; loads in under 1 second with no server or database.</p>
-        </div>
-        <div class="p-4 rounded-xl bg-slate-900/60 border border-slate-800">
-          <div class="text-xs font-mono text-slate-400 uppercase">Ground Truth Data</div>
-          <div class="text-base font-bold text-slate-100 mt-1">NASA LOLA + NAIF SPICE</div>
-          <p class="text-xs text-slate-400 mt-1">Real planetary ephemeris (DE440s) and 240m polar DEM ray-marching.</p>
-        </div>
-        <div class="p-4 rounded-xl bg-slate-900/60 border border-slate-800">
-          <div class="text-xs font-mono text-slate-400 uppercase">Operational Target</div>
-          <div class="text-base font-bold text-slate-100 mt-1">Artemis III Candidate Regions</div>
-          <p class="text-xs text-slate-400 mt-1">Verified coordinates across Shackleton, Connecting Ridge, Malapert, and Nobile.</p>
-        </div>
-      </div>
-    </div>
-
-    <!-- SLIDE 2: The South Pole Problem -->
-    <div class="slide hidden w-full max-w-5xl flex flex-col justify-center space-y-6" id="slide-2">
-      <div class="space-y-2">
-        <span class="text-xs font-mono text-rose-400 uppercase tracking-wider font-semibold">The Core Problem</span>
-        <h2 class="text-3xl sm:text-4xl font-black text-white">Why Flat Horizons Fail at the South Pole</h2>
-      </div>
-      <div class="grid grid-cols-1 md:grid-cols-2 gap-6 items-center">
-        <div class="space-y-4 text-sm sm:text-base text-slate-300 leading-relaxed">
-          <p>
-            Due to the Moon’s tiny 1.54° axial tilt to the ecliptic, the Sun and Earth skim along the polar horizon, rarely rising more than <strong>2° to 7°</strong> in elevation.
-          </p>
-          <div class="p-4 rounded-xl bg-rose-950/20 border border-rose-500/30 text-rose-200 space-y-2 text-xs sm:text-sm">
-            <div class="font-bold text-rose-400 flex items-center gap-1.5">
-              <span>CRITICAL DOMAIN FACT:</span>
+      <div class="content-grid">
+        <div class="content-col">
+          <div class="card" style="border-left: 3px solid var(--sun-gold);">
+            <h3>The South Pole Dilemma</h3>
+            <p>At the lunar south pole, celestial bodies never rise far above the horizon. A flat-horizon model is dangerously misleading—a 200 m crater rim kilometers away casts long shadows, plunging landers into cryogenic freeze-out.</p>
+          </div>
+          <div class="card" style="border-left: 3px solid var(--earth-cyan);">
+            <h3>Zero-Backend Static Architecture</h3>
+            <p>Combines offline high-precision astrodynamics (NAIF SPICE DE440s) and LOLA polar DEM ray-marching into a pure client-side web application loading in under 1 second with zero login.</p>
+          </div>
+          <div style="display: flex; gap: 12px;">
+            <div class="card" style="flex: 1;">
+              <div class="highlight-stat">6 Candidate Sites</div>
+              <p style="font-size: 11px;">Artemis III Regions (2026–2030)</p>
             </div>
-            <p>
-              Even modest crater rims rising 1° to 3° kilometers away cast shadows stretching <strong>dozens of kilometers</strong>. A flat-horizon model overestimates solar power by 25%–40% and blinds mission planners to prolonged freezing darkness (<40 K).
-            </p>
-          </div>
-          <p class="text-xs sm:text-sm text-slate-400">
-            Meanwhile, existing orbital mechanics software is heavy, expensive, and complicated, creating a severe bottleneck for rapid mission trade-offs.
-          </p>
-        </div>
-        <div class="p-6 rounded-2xl bg-slate-900/70 border border-slate-800 space-y-4">
-          <h3 class="text-sm font-mono font-bold text-slate-200 uppercase">South Pole Lighting Realities</h3>
-          <ul class="space-y-3 text-xs sm:text-sm text-slate-300">
-            <li class="flex items-start gap-2">
-              <span class="text-amber-400 font-bold">•</span>
-              <span><strong>Extreme Grazing Angles:</strong> Solar elevation bounded by $(90 - |\text{lat}|) + 1.543^\circ$.</span>
-            </li>
-            <li class="flex items-start gap-2">
-              <span class="text-cyan-400 font-bold">•</span>
-              <span><strong>27.3-Day Libration Wobble:</strong> Earth dips above/below the horizon in ~14-day cycles.</span>
-            </li>
-            <li class="flex items-start gap-2">
-              <span class="text-emerald-400 font-bold">•</span>
-              <span><strong>Knife-Edge Shadows:</strong> The terminator is completely fragmented by crater walls.</span>
-            </li>
-          </ul>
-        </div>
-      </div>
-    </div>
-
-    <!-- SLIDE 3: Architecture & Compact Data Pipeline -->
-    <div class="slide hidden w-full max-w-5xl flex flex-col justify-center space-y-6" id="slide-3">
-      <div class="space-y-2">
-        <span class="text-xs font-mono text-cyan-400 uppercase tracking-wider font-semibold">Technical Innovation</span>
-        <h2 class="text-3xl sm:text-4xl font-black text-white">High-Precision Offline Ray-Marching & Compact Packaging</h2>
-      </div>
-      <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
-        <div class="p-5 rounded-xl bg-slate-900/60 border border-slate-800 space-y-2">
-          <div class="text-amber-400 font-mono font-bold text-xs uppercase">Step 1: NAIF SPICE</div>
-          <h4 class="text-sm font-bold text-slate-100">Topocentric Astrodynamics</h4>
-          <p class="text-xs text-slate-400 leading-relaxed">
-            Transformed planetary vectors into the <code>MOON_ME</code> frame at 30-min intervals across 2026–2030 (87,648 epochs) using <code>de440s.bsp</code>.
-          </p>
-        </div>
-        <div class="p-5 rounded-xl bg-slate-900/60 border border-slate-800 space-y-2">
-          <div class="text-cyan-400 font-mono font-bold text-xs uppercase">Step 2: LOLA Ray-Marching</div>
-          <h4 class="text-sm font-bold text-slate-100">360° Spherical Curvature</h4>
-          <p class="text-xs text-slate-400 leading-relaxed">
-            Ray-marched NASA's <code>LDEM_75S_240M</code> polar DEM out to 120 km radius, computing 2.0m lander and 10.0m mast horizon profiles.
-          </p>
-        </div>
-        <div class="p-5 rounded-xl bg-slate-900/60 border border-slate-800 space-y-2">
-          <div class="text-emerald-400 font-mono font-bold text-xs uppercase">Step 3: Compact Packing</div>
-          <h4 class="text-sm font-bold text-slate-100">684 KB Dense Binary Files</h4>
-          <p class="text-xs text-slate-400 leading-relaxed">
-            Quantized solar & Earth azimuth/elevation into Uint16/Int16 buffers. The entire 5-year dataset ships in only 4.2 MB (<25 MB budget).
-          </p>
-        </div>
-      </div>
-      <div class="p-4 rounded-xl bg-slate-900/40 border border-slate-800 text-xs font-mono text-slate-300 flex items-center justify-between">
-        <span>Raw NASA Kernels & LOLA DEM</span>
-        <span class="text-cyan-400">➔</span>
-        <span>Python Offline Pipeline</span>
-        <span class="text-cyan-400">➔</span>
-        <span>Quantized Typed Binary (.bin)</span>
-        <span class="text-cyan-400">➔</span>
-        <span class="text-emerald-400 font-bold">Fast Browser Client (72 KB JS)</span>
-      </div>
-    </div>
-
-    <!-- SLIDE 4: Compare View & Multi-Site Timelines -->
-    <div class="slide hidden w-full max-w-5xl flex flex-col justify-center space-y-6" id="slide-4">
-      <div class="space-y-2">
-        <span class="text-xs font-mono text-amber-400 uppercase tracking-wider font-semibold">User Experience</span>
-        <h2 class="text-3xl sm:text-4xl font-black text-white">Compare View: Multi-Site Timelines in Seconds</h2>
-      </div>
-      <div class="grid grid-cols-1 md:grid-cols-2 gap-6 items-center">
-        <div class="space-y-3 text-xs sm:text-sm text-slate-300">
-          <p>
-            Planners can select 2 to 4 candidate Artemis landing sites and immediately inspect synchronized solar illumination (amber) and Direct-with-Earth comm windows (cyan).
-          </p>
-          <ul class="space-y-2 text-xs">
-            <li class="flex items-center gap-2">
-              <span class="w-1.5 h-1.5 rounded-full bg-amber-400"></span>
-              <span><strong>Hover Cursor Crosshair:</strong> Instantaneous UTC readout of exact celestial elevations.</span>
-            </li>
-            <li class="flex items-center gap-2">
-              <span class="w-1.5 h-1.5 rounded-full bg-cyan-400"></span>
-              <span><strong>Sortable Scoreboard:</strong> Filter by Sunlit %, continuous darkness, and DWE link availability.</span>
-            </li>
-            <li class="flex items-center gap-2">
-              <span class="w-1.5 h-1.5 rounded-full bg-emerald-400"></span>
-              <span><strong>#1 Site Highlight:</strong> Plain-English justification explaining the winning site's trade-offs.</span>
-            </li>
-          </ul>
-        </div>
-        <div class="rounded-xl overflow-hidden border border-slate-800 shadow-xl">
-          <img src="screenshots/m3_compare_view.png" alt="LunaSite Compare View" class="w-full h-auto">
-        </div>
-      </div>
-    </div>
-
-    <!-- SLIDE 5: 360° Horizon Panorama & Mast Leverage -->
-    <div class="slide hidden w-full max-w-5xl flex flex-col justify-center space-y-6" id="slide-5">
-      <div class="space-y-2">
-        <span class="text-xs font-mono text-cyan-400 uppercase tracking-wider font-semibold">Interactive Visualization</span>
-        <h2 class="text-3xl sm:text-4xl font-black text-white">360° Cylindrical Horizon & Mast Height Simulator</h2>
-      </div>
-      <div class="grid grid-cols-1 md:grid-cols-2 gap-6 items-center">
-        <div class="rounded-xl overflow-hidden border border-slate-800 shadow-xl">
-          <img src="screenshots/m3_horizon_view.png" alt="LunaSite 360 Horizon View" class="w-full h-auto">
-        </div>
-        <div class="space-y-3 text-xs sm:text-sm text-slate-300">
-          <p>
-            The Horizon View renders the real LOLA terrain silhouette across all 360° azimuth angles from the lander's perspective.
-          </p>
-          <div class="p-3.5 rounded-xl bg-slate-900 border border-slate-800 space-y-2 text-xs">
-            <div class="font-bold text-emerald-400 uppercase font-mono">10.0m Deployable Mast Leverage:</div>
-            <p class="text-slate-300 leading-relaxed">
-              Toggling from a 2.0m surface sensor to a 10.0m deployable array lowers the apparent horizon by <strong>0.5° to 1.5°</strong>, cutting maximum freezing darkness by hundreds of hours and boosting solar generation by over 10%.
-            </p>
-          </div>
-          <p class="text-xs text-slate-400">
-            Includes extended solar disc modeling (0.53° diameter) and variable-speed simulation playback (1x, 10x, 48x [24h/s], 120x).
-          </p>
-        </div>
-      </div>
-    </div>
-
-    <!-- SLIDE 6: Best-Window Finder & Learn Mode -->
-    <div class="slide hidden w-full max-w-5xl flex flex-col justify-center space-y-6" id="slide-6">
-      <div class="space-y-2">
-        <span class="text-xs font-mono text-emerald-400 uppercase tracking-wider font-semibold">Operational Tools & Education</span>
-        <h2 class="text-3xl sm:text-4xl font-black text-white">Automated Best-Window Finder & Learn Mode</h2>
-      </div>
-      <div class="grid grid-cols-1 md:grid-cols-2 gap-6 items-center">
-        <div class="space-y-4 text-xs sm:text-sm text-slate-300">
-          <div class="p-4 rounded-xl bg-slate-900/70 border border-slate-800 space-y-2">
-            <h4 class="font-bold text-amber-400 font-mono text-xs uppercase">Optimal Mission Window Finder</h4>
-            <p class="text-xs text-slate-300 leading-relaxed">
-              Slides a window across 5 years of ephemerides to rank the top 5 landing opportunities for 7, 14, or 30-day surface stays. One-click "Apply" button jumps the application directly to the optimal launch date.
-            </p>
-          </div>
-          <div class="p-4 rounded-xl bg-slate-900/70 border border-slate-800 space-y-2">
-            <h4 class="font-bold text-cyan-400 font-mono text-xs uppercase">Interactive Learn Mode & Glossary</h4>
-            <p class="text-xs text-slate-300 leading-relaxed">
-              A 6-step guided walkthrough and searchable glossary explaining low solar elevation, lunar libration, permanently shadowed regions (PSRs), and DWE communications for students and educators.
-            </p>
+            <div class="card" style="flex: 1;">
+              <div class="highlight-stat">87,648 Epochs</div>
+              <p style="font-size: 11px;">Evaluated at 30-min precision</p>
+            </div>
           </div>
         </div>
-        <div class="rounded-xl overflow-hidden border border-slate-800 shadow-xl">
-          <img src="screenshots/m3_learn_view.png" alt="LunaSite Learn View" class="w-full h-auto">
+        <div class="img-box">
+          <img src="deck_assets/compare_hero.png" alt="LunaSite Compare View Hero">
         </div>
       </div>
     </div>
 
-    <!-- SLIDE 7: Scientific Validation & Impact -->
-    <div class="slide hidden w-full max-w-5xl flex flex-col justify-center space-y-6" id="slide-7">
-      <div class="space-y-2">
-        <span class="text-xs font-mono text-amber-400 uppercase tracking-wider font-semibold">Scientific Rigor & Impact</span>
-        <h2 class="text-3xl sm:text-4xl font-black text-white">Validated Against Ground Truth Literature</h2>
+    <!-- Slide 2: The South Pole Challenge -->
+    <div class="slide" id="slide-2">
+      <div>
+        <div class="slide-badge">Challenge Background</div>
+        <h2>Extreme Lighting & Telecommunication Constraints</h2>
+        <p class="subtitle">Why flat-horizon models fail at the Lunar South Pole</p>
       </div>
-      <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 text-xs">
-        <div class="p-4 rounded-xl bg-slate-900/60 border border-slate-800 space-y-2">
-          <div class="font-bold text-emerald-400 font-mono uppercase">Mazarico et al. (2011) Benchmark</div>
-          <p class="text-slate-300">
-            LunaSite measures <strong>38.1%</strong> annual illumination at Peak Near Shackleton and longest darkness of 59 days—matching Mazarico’s published multi-year baseline within <strong>< 3%</strong>.
-          </p>
+      <div class="content-grid">
+        <div class="content-col">
+          <div class="card">
+            <h3>1.54° Lunar Obliquity</h3>
+            <p>Because the Moon's axial tilt to the ecliptic is only 1.54°, the Sun skims between -3° and +7° across the horizon. Local topography completely governs solar power collection.</p>
+          </div>
+          <div class="card">
+            <h3>Cryogenic Freeze-Out Danger</h3>
+            <p>Flat-horizon approximations overestimate solar illumination by 25% to 40%. A single shadow event can exceed 400 continuous hours without power at sub-40 K temperatures.</p>
+          </div>
+          <div class="card">
+            <h3>Direct-with-Earth (DWE) Line-of-Sight</h3>
+            <p>Earth oscillates with a ~27.32-day sidereal libration cycle, dipping below crater ridges and breaking direct communication links when lunar relays are unavailable.</p>
+          </div>
         </div>
-        <div class="p-4 rounded-xl bg-slate-900/60 border border-slate-800 space-y-2">
-          <div class="font-bold text-cyan-400 font-mono uppercase">Gläser et al. (2014) Benchmark</div>
-          <p class="text-slate-300">
-            LunaSite computes <strong>40.4%</strong> illumination at Connecting Ridge, in direct agreement with Gläser et al.’s published 40%–45% range.
-          </p>
+        <div class="content-col">
+          <div class="card" style="background: rgba(15, 23, 42, 0.9);">
+            <h3 style="color: #fff; margin-bottom: 12px;">Illumination Discrepancy (Flat vs. Topography)</h3>
+            <div style="display: flex; justify-content: space-between; padding: 8px 0; border-bottom: 1px solid #334155;">
+              <span style="color: var(--text-muted); font-size: 13px;">Shackleton Peak (Flat)</span>
+              <span class="highlight-stat" style="font-size: 15px; color: var(--sun-gold);">50.5%</span>
+            </div>
+            <div style="display: flex; justify-content: space-between; padding: 8px 0; border-bottom: 1px solid #334155;">
+              <span style="color: var(--text-muted); font-size: 13px;">Shackleton Peak (2 m Topo)</span>
+              <span class="highlight-stat" style="font-size: 15px; color: #ef4444;">33.6% (-16.9%)</span>
+            </div>
+            <div style="display: flex; justify-content: space-between; padding: 8px 0;">
+              <span style="color: var(--text-muted); font-size: 13px;">Shackleton Peak (10 m Mast)</span>
+              <span class="highlight-stat" style="font-size: 15px; color: var(--accent-emerald);">46.5% (+12.9%)</span>
+            </div>
+          </div>
+          <div class="card">
+            <h3>Mast Elevation Leverage</h3>
+            <p>A 10-meter deployable mast clears low foreground ridges, boosting illuminated time by up to +13% across 5 years.</p>
+          </div>
         </div>
-      </div>
-      <div class="p-5 rounded-2xl bg-gradient-to-r from-amber-500/10 via-slate-900 to-cyan-500/10 border border-slate-800 flex flex-col sm:flex-row sm:items-center justify-between gap-4">
-        <div>
-          <h4 class="text-sm font-bold text-slate-100">Zero Login. Pure Client-Side. 100% Real NASA Data.</h4>
-          <p class="text-xs text-slate-400 mt-0.5">Empowering mission planners, educators, and the public to explore the lunar frontier.</p>
-        </div>
-        <a href="index.html" class="px-5 py-2.5 rounded-lg bg-amber-500 hover:bg-amber-400 text-slate-950 font-bold text-xs shrink-0 transition-all text-center">
-          Launch Live App ➔
-        </a>
       </div>
     </div>
 
-  </main>
+    <!-- Slide 3: Offline Pipeline & Architecture -->
+    <div class="slide" id="slide-3">
+      <div>
+        <div class="slide-badge">Architecture & Pipeline</div>
+        <h2>High-Precision Astrodynamics with Zero-Backend Static Delivery</h2>
+        <p class="subtitle">Reproducible planetary pipeline built entirely on open NASA data</p>
+      </div>
+      <div class="content-grid">
+        <div class="content-col">
+          <div class="card">
+            <h3>NASA NAIF SPICE Kernels</h3>
+            <p>Uses planetary ephemeris kernel <code>de440s.bsp</code>, lunar body-fixed frame <code>moon_080317.tf</code> (MOON_ME), and high-precision orientation PCK <code>moon_pa_de421</code> across 2026–2030.</p>
+          </div>
+          <div class="card">
+            <h3>NASA LRO LOLA Topography</h3>
+            <p>Ray-marches 360 azimuth rays out to 120 km radius over <code>LDEM_75S_240M</code> (240 m/px) with spherical Moon curvature corrections to compute terrain horizon silhouettes.</p>
+          </div>
+          <div class="card">
+            <h3>Ultra-Compact Client Packaging</h3>
+            <p>Quantizes 87,648 4-variable epochs into a compact 701 KB binary buffer per site. Full 5-year multi-site dataset downloads in &lt; 4.5 MB with zero runtime backend dependency.</p>
+          </div>
+        </div>
+        <div class="content-col">
+          <div class="card" style="padding: 20px;">
+            <h3 style="color: #fff; margin-bottom: 12px;">Architecture Flow</h3>
+            <div style="font-family: 'JetBrains Mono', monospace; font-size: 12px; line-height: 1.6; color: var(--text-muted); background: #0b1120; padding: 14px; border-radius: 6px; border: 1px solid #1e293b;">
+              NASA PDS & NAIF SPICE<br>
+              &nbsp;&nbsp;│ (Raw Ephemeris & LOLA DEM)<br>
+              &nbsp;&nbsp;▼<br>
+              Python Pipeline (SpiceyPy + NumPy)<br>
+              &nbsp;&nbsp;│ Topocentric Horizon Ray-Marching<br>
+              &nbsp;&nbsp;▼<br>
+              Binary + JSON Static Assets (701 KB/site)<br>
+              &nbsp;&nbsp;│ Instant Zero-Backend Delivery<br>
+              &nbsp;&nbsp;▼<br>
+              React 18 + Canvas SPA (&lt; 75 KB gzipped JS)
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
 
-  <!-- Presentation Footer & Controls -->
-  <footer class="border-t border-slate-800 bg-[#090d16] px-6 py-4 flex items-center justify-between nav-controls">
-    <div class="flex items-center gap-2">
-      <button id="prevBtn" class="px-3.5 py-1.5 rounded-lg bg-slate-800 hover:bg-slate-700 text-xs font-semibold transition-all">
-        ◀ Previous
-      </button>
-      <button id="nextBtn" class="px-4 py-1.5 rounded-lg bg-amber-500 hover:bg-amber-400 text-slate-950 font-bold text-xs transition-all">
-        Next ▶
-      </button>
-      <span class="text-xs text-slate-500 ml-2 hidden sm:inline">(Use Left/Right arrow keys or Spacebar)</span>
+    <!-- Slide 4: 360 Horizon View -->
+    <div class="slide" id="slide-4">
+      <div>
+        <div class="slide-badge">Interactive Feature</div>
+        <h2>Real-Time 360° Panoramic Horizon & Celestial Simulator</h2>
+        <p class="subtitle">Immediate visual confirmation of terrain occlusion and line-of-sight</p>
+      </div>
+      <div class="content-grid">
+        <div class="content-col">
+          <div class="card">
+            <h3>Exact LOLA Terrain Silhouette</h3>
+            <p>Renders true lunar ridge profiles across all 360° azimuths. Topographic relief shows peaks and crater rims in crisp detail.</p>
+          </div>
+          <div class="card">
+            <h3>Extended Celestial Discs</h3>
+            <p>Models Sun as a 0.53° angular disc with partial chord illumination, and Earth as a 1.90° disc with RF direct line-of-sight status.</p>
+          </div>
+          <div class="card">
+            <h3>Interactive Scrubber & Simulation</h3>
+            <p>Scrub smoothly across 5 years with 1x to 120x playback rates. Telemetry badges display precise elevations above local terrain.</p>
+          </div>
+        </div>
+        <div style="display: flex; flex-direction: column; gap: 10px;">
+          <div class="img-box" style="height: 195px;">
+            <img src="deck_assets/horizon_hero.png" alt="Horizon view with Sun & Earth visible">
+          </div>
+          <div class="img-box" style="height: 195px;">
+            <img src="deck_assets/horizon_blocked.png" alt="Horizon view with Earth blocked by crater ridge">
+          </div>
+        </div>
+      </div>
     </div>
-    <div class="text-[11px] font-mono text-slate-500">
-      LunaSite • NASA Space Apps Challenge 2026
+
+    <!-- Slide 5: Decision Support & Best Window Finder -->
+    <div class="slide" id="slide-5">
+      <div>
+        <div class="slide-badge">Decision Support</div>
+        <h2>Mission Viability Scoring & Best-Window Finder</h2>
+        <p class="subtitle">Algorithmic multi-factor optimization for landing and surface operations</p>
+      </div>
+      <div class="content-grid">
+        <div class="content-col">
+          <div class="card">
+            <h3>Explainable Viability Score (0 to 100)</h3>
+            <p>Balances sunlit fraction, darkness penalty, Earth DWE coverage, and comms outage duration. Four operational presets: <em>Rover Mobility</em>, <em>Static Lander</em>, <em>Crewed Stay</em>, and <em>Education</em>.</p>
+          </div>
+          <div class="card">
+            <h3>Sliding-Window Optimization</h3>
+            <p>Scans the 5-year timeline to identify and rank the top 5 landing intervals for 7-day, 14-day, or 30-day surface missions.</p>
+          </div>
+          <div class="card">
+            <h3>One-Click Application</h3>
+            <p>Click "Apply" to jump the entire synchronized timeline directly into the optimal mission window.</p>
+          </div>
+        </div>
+        <div class="img-box">
+          <img src="deck_assets/compare_best_window.png" alt="Best Window Finder showing top ranked windows">
+        </div>
+      </div>
     </div>
-  </footer>
+
+    <!-- Slide 6: Scientific Validation -->
+    <div class="slide" id="slide-6">
+      <div>
+        <div class="slide-badge">Scientific Rigor</div>
+        <h2>Rigorously Validated Against Analytical Bounds & Published Literature</h2>
+        <p class="subtitle">Complete transparency and honest scientific reporting</p>
+      </div>
+      <div class="content-grid">
+        <div class="content-col">
+          <div class="card">
+            <h3>Solar Latitude Bound (VAL-EPHEM-01)</h3>
+            <p>100% of the 87,648 calculated solar elevations obey celestial mechanics limits derived from lunar obliquity: \(E_{\text{sun,max}} \le (90^\circ - |\phi|) + 1.543^\circ\) within ±0.03°.</p>
+          </div>
+          <div class="card">
+            <h3>Earth Libration Period (VAL-EPHEM-02)</h3>
+            <p>Fundamental oscillation of Earth elevation measures <strong>27.21 ± 0.08 days</strong>, exactly matching the 27.32-day sidereal month across 66 complete cycles.</p>
+          </div>
+          <div class="card">
+            <h3>Literature Benchmarks (Mazarico 2011 & Gläser 2014)</h3>
+            <p>Peak Near Shackleton 5-year illumination of 38.1% matches published LOLA baselines (38–42%), and winter darkness of 59 days replicates published lunar winter occultations.</p>
+          </div>
+        </div>
+        <div class="img-box">
+          <img src="deck_assets/learn_step.png" alt="Learn Mode and Technical Glossary">
+        </div>
+      </div>
+    </div>
+
+    <!-- Slide 7: Impact & Accessibility -->
+    <div class="slide" id="slide-7">
+      <div>
+        <div class="slide-badge">Global Impact</div>
+        <h2>Democratizing Lunar Exploration for Planners, Students & the World</h2>
+        <p class="subtitle">Production-ready, accessible, and 100% open source</p>
+      </div>
+      <div class="content-grid">
+        <div class="content-col">
+          <div class="card">
+            <h3>Mission Planners & Engineers</h3>
+            <p>Perform complex multi-site trade-offs in seconds instead of waiting hours for heavy orbital software suites.</p>
+          </div>
+          <div class="card">
+            <h3>Educators & Students</h3>
+            <p>Learn Mode features a 6-step guided walkthrough and an interactive glossary covering astrodynamics, telecommunications, and topography.</p>
+          </div>
+          <div class="card">
+            <h3>Accessibility & Portability</h3>
+            <p>WCAG AA contrast compliant, colorblind-safe palettes, mobile responsive down to 360 px, and one-click CSV/PNG export.</p>
+          </div>
+        </div>
+        <div class="img-box">
+          <img src="deck_assets/mobile_compare.png" alt="Mobile responsive compare view on phone screen" style="object-fit: contain; background: #06090e;">
+        </div>
+      </div>
+    </div>
+
+    <!-- Bottom Controls -->
+    <div class="controls">
+      <div>
+        <span>NASA Space Apps 2026 | Team LunaSite</span>
+      </div>
+      <div class="slide-counter" id="counter">Slide 1 of 7</div>
+      <div class="btn-group">
+        <button id="prevBtn" onclick="changeSlide(-1)">◀ Previous</button>
+        <button id="nextBtn" onclick="changeSlide(1)">Next ▶</button>
+      </div>
+    </div>
+
+  </div>
 
   <script>
     let currentSlide = 1;
     const totalSlides = 7;
 
-    function showSlide(index) {
-      if (index < 1) index = 1;
-      if (index > totalSlides) index = totalSlides;
-      currentSlide = index;
+    function showSlide(n) {
+      if (n > totalSlides) currentSlide = 1;
+      else if (n < 1) currentSlide = totalSlides;
+      else currentSlide = n;
 
       for (let i = 1; i <= totalSlides; i++) {
-        const el = document.getElementById(`slide-${i}`);
-        if (el) {
-          if (i === currentSlide) {
-            el.classList.remove('hidden');
-          } else {
-            el.classList.add('hidden');
-          }
+        const slide = document.getElementById('slide-' + i);
+        if (slide) {
+          slide.classList.remove('active');
         }
       }
+      const activeSlide = document.getElementById('slide-' + currentSlide);
+      if (activeSlide) activeSlide.classList.add('active');
 
-      document.getElementById('slideIndicator').textContent = `Slide ${currentSlide} of ${totalSlides}`;
-      document.getElementById('prevBtn').disabled = currentSlide === 1;
-      document.getElementById('prevBtn').classList.toggle('opacity-40', currentSlide === 1);
+      document.getElementById('counter').innerText = `Slide ${currentSlide} of ${totalSlides}`;
     }
 
-    document.getElementById('prevBtn').addEventListener('click', () => showSlide(currentSlide - 1));
-    document.getElementById('nextBtn').addEventListener('click', () => showSlide(currentSlide + 1));
+    function changeSlide(direction) {
+      showSlide(currentSlide + direction);
+    }
 
-    window.addEventListener('keydown', (e) => {
-      if (e.key === 'ArrowRight' || e.key === ' ' || e.key === 'PageDown') {
-        showSlide(currentSlide + 1);
-      } else if (e.key === 'ArrowLeft' || e.key === 'PageUp') {
-        showSlide(currentSlide - 1);
+    document.addEventListener('keydown', function(e) {
+      if (e.key === 'ArrowRight' || e.key === 'Space') {
+        changeSlide(1);
+      } else if (e.key === 'ArrowLeft') {
+        changeSlide(-1);
       }
     });
-
-    showSlide(1);
   </script>
 </body>
 </html>
