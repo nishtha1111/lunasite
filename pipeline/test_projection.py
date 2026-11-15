@@ -1,3 +1,4 @@
+# Portions of this file were generated with SI assistance (see SI_USE.md)
 """
 Portions of this file were generated with AI assistance.
 Verify forward and inverse projection on all Artemis III candidate sites.

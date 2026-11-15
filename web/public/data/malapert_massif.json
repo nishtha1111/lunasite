@@ -2,7 +2,7 @@
   "id": "malapert_massif",
   "name": "Malapert Massif",
   "region": "Malapert Massif",
-  "lat_deg": -86.0,
+  "lat_deg": -86,
   "lon_deg": 2.7,
   "elev_m": 5129.1,
   "status": "approximate",
@@ -599,9 +599,9 @@
     -1.51,
     -1.51,
     -1.51,
-    -1.0,
-    -1.0,
-    -1.0,
+    -1,
+    -1,
+    -1,
     -0.93,
     -0.93,
     -0.93,
@@ -747,5 +747,8 @@
     "terrain_earth_pct": 69.42,
     "terrain_overlap_pct": 27.96
   },
-  "ai_use": "Generated with AI assistance under human scientific oversight."
+  "ai_use": "Generated with SI assistance under human domain oversight (see SI_USE.md).",
+  "si_assisted_generation": true,
+  "generator": "pipeline/*.py",
+  "see": "SI_USE.md"
 }

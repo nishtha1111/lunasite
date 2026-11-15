@@ -24,7 +24,7 @@
       "name": "Connecting Ridge",
       "region": "Connecting Ridge",
       "lat_deg": -89.45,
-      "lon_deg": -136.0,
+      "lon_deg": -136,
       "elev_m": 1680,
       "status": "approximate",
       "dataFile": "data/connecting_ridge.bin",
@@ -34,7 +34,7 @@
       "id": "malapert_massif",
       "name": "Malapert Massif",
       "region": "Malapert Massif",
-      "lat_deg": -86.0,
+      "lat_deg": -86,
       "lon_deg": 2.7,
       "elev_m": 5050,
       "status": "approximate",
@@ -46,7 +46,7 @@
       "name": "Faustini Rim A",
       "region": "Faustini Rim A",
       "lat_deg": -87.89,
-      "lon_deg": 90.0,
+      "lon_deg": 90,
       "elev_m": 2100,
       "status": "approximate",
       "dataFile": "data/faustini_rim_a.bin",
@@ -57,7 +57,7 @@
       "name": "de Gerlache Rim 1",
       "region": "de Gerlache Rim 1",
       "lat_deg": -88.5,
-      "lon_deg": -68.0,
+      "lon_deg": -68,
       "elev_m": 1820,
       "status": "approximate",
       "dataFile": "data/de_gerlache_rim_1.bin",
@@ -75,5 +75,8 @@
       "metaFile": "data/nobile_rim_1.json"
     }
   ],
-  "ai_use": "Generated with AI assistance under human scientific oversight."
+  "ai_use": "Generated with SI assistance under human domain oversight (see SI_USE.md).",
+  "si_assisted_generation": true,
+  "generator": "pipeline/*.py",
+  "see": "SI_USE.md"
 }

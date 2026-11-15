@@ -8,7 +8,7 @@
 [![SPICE](https://img.shields.io/badge/NAIF_SPICE-de440s-amber)](https://naif.jpl.nasa.gov/)
 [![LOLA DEM](https://img.shields.io/badge/NASA_LOLA-LDEM__75S__240M-emerald)](https://pds-geosciences.wustl.edu/)
 [![Zero Backend](https://img.shields.io/badge/Architecture-Zero_Backend_Static-purple)](#architecture)
-[![AI Use Disclosure](https://img.shields.io/badge/AI_Disclosure-AI__USE.md-brightgreen)](AI_USE.md)
+[![SI Disclosure](https://img.shields.io/badge/SI_Disclosure-SI__USE.md-brightgreen)](SI_USE.md)
 
 ---
 
@@ -143,10 +143,11 @@ Detailed methodology and derivations are documented in:
 
 ## Submission & Compliance
 
-- **AI Use Disclosure**: Full disclosure of AI tools and human domain oversight is documented in [`AI_USE.md`](AI_USE.md).
+- **Use of Super Intelligence (SI) Tools**: Full disclosure of Super Intelligence and AI tools (Antigravity with Gemini 2.5 Pro/Flash) under human domain oversight, including image disclosure and validation protocols, is documented in [`SI_USE.md`](SI_USE.md).
 - **Challenge Criteria Mapping**: Complete mapping against all 5 Space Apps judging criteria is in [`submission/CRITERIA_MAPPING.md`](submission/CRITERIA_MAPPING.md).
 - **Demo Video Script & Subtitles**: 30-second script and `.srt` subtitles in [`submission/demo_video_script_30s.md`](submission/demo_video_script_30s.md) and [`submission/demo_video_30s.srt`](submission/demo_video_30s.srt).
-- **Presentation Deck**: 7-slide outline in [`submission/demo_slides_outline.md`](submission/demo_slides_outline.md).
+- **Presentation Deck**: 7-slide outline in [`submission/demo_slides_outline.md`](submission/demo_slides_outline.md) and interactive presentation in [`submission/demo_slides.html`](submission/demo_slides.html).
+- **Official Submission Form Answers**: Complete copy-paste form answers for the NASA Space Apps submission portal in [`submission/FORM_ANSWERS.md`](submission/FORM_ANSWERS.md).
 
 ---
 

@@ -3,7 +3,7 @@
   "name": "de Gerlache Rim 1",
   "region": "de Gerlache Rim 1",
   "lat_deg": -88.5,
-  "lon_deg": -68.0,
+  "lon_deg": -68,
   "elev_m": 1508.2,
   "status": "approximate",
   "description": "Eastern high rim of de Gerlache Crater with sustained solar exposure and moderate terrain slopes.",
@@ -652,7 +652,7 @@
     -2.99,
     -3.01,
     -3.06,
-    -3.0,
+    -3,
     -2.93,
     -2.88,
     -2.86,
@@ -747,5 +747,8 @@
     "terrain_earth_pct": 55.04,
     "terrain_overlap_pct": 25.62
   },
-  "ai_use": "Generated with AI assistance under human scientific oversight."
+  "ai_use": "Generated with SI assistance under human domain oversight (see SI_USE.md).",
+  "si_assisted_generation": true,
+  "generator": "pipeline/*.py",
+  "see": "SI_USE.md"
 }

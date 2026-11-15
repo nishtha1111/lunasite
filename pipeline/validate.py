@@ -1,3 +1,4 @@
+# Portions of this file were generated with SI assistance (see SI_USE.md)
 """
 Scientific Validation Suite for LunaSite Ephemeris and LOLA Horizon Model.
 

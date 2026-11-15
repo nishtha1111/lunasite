@@ -1,3 +1,4 @@
+# Portions of this file were generated with SI assistance (see SI_USE.md)
 """
 Portions of this file were generated with AI assistance.
 Inspect LOLA South Polar DEM binary data and verify projection formulas.

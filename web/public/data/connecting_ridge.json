@@ -3,8 +3,8 @@
   "name": "Connecting Ridge",
   "region": "Connecting Ridge",
   "lat_deg": -89.45,
-  "lon_deg": -136.0,
-  "elev_m": 1866.0,
+  "lon_deg": -136,
+  "elev_m": 1866,
   "status": "approximate",
   "description": "Prominent high-elevation saddle feature connecting the rims of Shackleton and de Gerlache craters, offering exceptional strategic vantage.",
   "start_utc": "2026-01-01T00:00:00",
@@ -140,7 +140,7 @@
     -1.69,
     -1.79,
     -1.9,
-    -2.0,
+    -2,
     -2.18,
     -2.35,
     -2.54,
@@ -477,7 +477,7 @@
     -1.61,
     -1.78,
     -1.91,
-    -2.0,
+    -2,
     -2.12,
     -2.31,
     -2.56,
@@ -747,5 +747,8 @@
     "terrain_earth_pct": 70.59,
     "terrain_overlap_pct": 27.71
   },
-  "ai_use": "Generated with AI assistance under human scientific oversight."
+  "ai_use": "Generated with SI assistance under human domain oversight (see SI_USE.md).",
+  "si_assisted_generation": true,
+  "generator": "pipeline/*.py",
+  "see": "SI_USE.md"
 }

@@ -3,7 +3,7 @@
   "name": "Faustini Rim A",
   "region": "Faustini Rim A",
   "lat_deg": -87.89,
-  "lon_deg": 90.0,
+  "lon_deg": 90,
   "elev_m": 23.4,
   "status": "approximate",
   "description": "Elevated rim segment of Faustini Crater flanked by permanently shadowed regions containing potential surface and subsurface water ice.",
@@ -233,7 +233,7 @@
     -1.03,
     -1.04,
     -1.02,
-    -1.0,
+    -1,
     -1.04,
     -1.29,
     -1.33,
@@ -250,7 +250,7 @@
     -0.8,
     -0.82,
     -0.9,
-    -1.0,
+    -1,
     -1.11,
     -1.19,
     -1.22,
@@ -429,8 +429,8 @@
     3.25,
     3.35,
     3.71,
-    4.0,
-    4.0,
+    4,
+    4,
     4.37,
     4.37,
     4.48,
@@ -747,5 +747,8 @@
     "terrain_earth_pct": 57.19,
     "terrain_overlap_pct": 24.12
   },
-  "ai_use": "Generated with AI assistance under human scientific oversight."
+  "ai_use": "Generated with SI assistance under human domain oversight (see SI_USE.md).",
+  "si_assisted_generation": true,
+  "generator": "pipeline/*.py",
+  "see": "SI_USE.md"
 }

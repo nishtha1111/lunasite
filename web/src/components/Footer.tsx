@@ -1,5 +1,5 @@
+// Portions of this file were generated with SI assistance (see SI_USE.md)
 /**
- * Portions of this file were generated with AI assistance.
  * LunaSite Footer Component.
  */
 
@@ -26,7 +26,7 @@ export const Footer: React.FC = () => {
         <div className="space-y-1 md:text-right shrink-0">
           <div className="flex items-center md:justify-end gap-3 font-mono text-[11px]">
             <a 
-              href="https://github.com" 
+              href="https://github.com/nishtha1111/lunasite" 
               target="_blank" 
               rel="noreferrer" 
               className="text-slate-400 hover:text-slate-200 flex items-center gap-1 transition-colors"
@@ -35,10 +35,15 @@ export const Footer: React.FC = () => {
               <ExternalLink className="w-3 h-3" />
             </a>
             <span className="text-lunar-700">•</span>
-            <span className="text-emerald-400/90 flex items-center gap-1">
+            <a
+              href="https://github.com/nishtha1111/lunasite/blob/main/SI_USE.md"
+              target="_blank"
+              rel="noreferrer"
+              className="text-emerald-400/90 hover:text-emerald-300 flex items-center gap-1 transition-colors"
+            >
               <Cpu className="w-3 h-3" />
-              <span>AI-Assisted (See AI_USE.md)</span>
-            </span>
+              <span>Built with SI assistance (see SI_USE.md)</span>
+            </a>
           </div>
           <p className="text-[10px] text-slate-400 flex items-center md:justify-end gap-1">
             <ShieldAlert className="w-3 h-3 text-amber-500 shrink-0" />

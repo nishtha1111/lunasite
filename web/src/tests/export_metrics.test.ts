@@ -1,3 +1,4 @@
+// Portions of this file were generated with SI assistance (see SI_USE.md)
 import { describe, it, expect } from 'vitest';
 import * as fs from 'node:fs';
 import * as path from 'node:path';
